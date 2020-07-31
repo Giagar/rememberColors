@@ -1,0 +1,388 @@
+/*
+CREDITS: 
+_Hover.css for the effect on the start button (on clicking it). I slightly modified it to meet my necessity; the original versione is available here:
+https://ianlunn.github.io/Hover/
+_Emanuele, from whose project I took the colors of the non lit colored buttons.
+https://codepen.io/Em-Ant/full/QbRyqq/
+*/
+
+body {
+  background-color: black;
+}
+
+button:focus {
+  outline: none;
+}
+
+.btnContainer,
+.ctrlPanel {
+  display: inline;
+  margin-left: 32px;
+}
+
+.game {
+  margin: auto;
+  z-index: 1;
+  width: 550px;
+}
+
+.btnContainer {
+  position: absolute;
+  margin-top: 20px;
+  height: 600px;
+  width: 305px;
+}
+
+.raw1 {
+  transform: translate(50px, 100px);
+}
+
+.raw2 {
+  transform: translate(40px, 190px) rotateZ(40deg);
+}
+
+.clrBtn {
+  position: absolute;
+  background-color: white;
+  height: 160px;
+  width: 140px;
+  border: none;
+  border-radius: 0 80%;
+}
+
+.green {
+  background-color: rgba(0, 167, 64, 1);
+  z-index: 4;
+}
+
+.red {
+  background-color: rgba(159, 15, 23, 1);
+  transform: rotate(50deg) translate(37px, -83px);
+  z-index: 3;
+}
+
+.blue {
+  background-color: rgba(9, 74, 143, 1);
+  transform: rotate(100deg) translate(-3px, -163px);
+  z-index: 2;
+}
+
+.yellow {
+  background-color: rgba(204, 167, 7, 1);
+  transform: rotate(150deg) translate(-91px, -184px);
+  z-index: 1;
+}
+
+/*------------------------Control Panel*/
+.ctrlPanel {
+  width: 70px;
+  height: 386px;
+  position: absolute;
+  left: 350px;
+  top: 120px;
+  border: solid 1px rgba(210, 210, 210, 0.9);
+  border-radius: 4px;
+  font-family: "Inconsolata", monospace;
+  font-family: "Poiret One", cursive;
+}
+
+.display {
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  margin-top: 38px;
+  vertical-align: middle;
+  font-size: 30px;
+  color: white;
+  background-color: black;
+  text-shadow: 0 0 10px rgba(230, 230, 230, 0.9);
+  font-family: "Cabin", sans-serif;
+}
+
+.start,
+.strict {
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  border: none;
+  margin-top: 45px;
+}
+
+.start {
+  width: 8px;
+  background-color: rgba(220, 220, 220, 1);
+  box-shadow: inset 0 0 5px 1px rgba(200, 200, 200, 0.6);
+}
+
+.start:hover,
+.strict:hover {
+  box-shadow: 0 0 1px 0 rgba(100, 100, 100, 1),
+    0px 0px 10px 4px rgba(220, 220, 220, 0.4);
+}
+
+.strict {
+  box-shadow: inset 0 0 5px 1px rgba(100, 100, 100, 0.6);
+}
+
+p {
+  color: rgba(230, 230, 230, 1);
+  font-variant: small-caps;
+  font-size: 20px;
+  line-height: 16px;
+  margin-top: 7px;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.startP {
+  margin-top: 14px;
+}
+
+/*--------------------Additional Pages*/
+.wrong {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  text-transform: uppercase;
+  font-size: 140px;
+  animation-name: wrongOn;
+  animation-duration: 1s;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  height: 550px;
+  width: 100%;
+  font-family: "Boogaloo", cursive;
+}
+
+.wrong > p {
+  font-family: "Boogaloo", cursive;
+  font-size: 140px;
+  margin-top: 220px;
+  margin-left: 1%;
+  letter-spacing: 8px;
+  min-width: 600px;
+}
+
+@keyframes wrongOn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.youwin {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  text-transform: uppercase;
+  font-size: 140px;
+  animation-name: youwinOn;
+  animation-duration: 4s;
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0;
+  height: 550px;
+  width: 100%;
+}
+
+.youwin > p {
+  font-family: "Russo One", sans-serif;
+  font-size: 140px;
+  margin-top: 220px;
+  margin-left: 2%;
+  letter-spacing: 8px;
+  animation-name: youwinOnP;
+  animation-duration: 4s;
+  min-width: 800px;
+}
+
+@keyframes youwinOn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes youwinOnP {
+  0% {
+    opacity: 0;
+    margin-top: 0;
+  }
+  10% {
+    margin-top: 320px;
+  }
+  20% {
+    opacity: 1;
+  }
+  30% {
+    margin-top: 210px;
+  }
+  45% {
+    margin-top: 220px;
+  }
+  50% {
+    text-shadow: 0 0 35px rgba(240, 240, 240, 0.9);
+  }
+  75% {
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(240, 240, 240, 0.9);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.intro {
+  position: absolute;
+  z-index: 2;
+  color: white;
+  text-transform: uppercase;
+  font-size: 140px;
+  animation-name: introOn;
+  animation-duration: 4s;
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+}
+
+@keyframes introOn {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.introSup {
+  font-family: "Russo One", sans-serif;
+  font-size: 100px;
+  margin-top: -100px;
+  letter-spacing: 8px;
+  animation-name: introSupOn;
+  animation-duration: 4s;
+  min-width: 646px;
+}
+
+@keyframes introSupOn {
+  0% {
+    opacity: 1;
+    margin-top: -100px;
+  }
+  50% {
+    margin-top: 210px;
+  }
+  70% {
+    text-shadow: 0 0 35px rgba(240, 240, 240, 0.9);
+  }
+  75% {
+    text-shadow: 0 0 55px rgba(240, 240, 240, 0.9);
+  }
+  80% {
+    opacity: 1;
+    margin-top: 210px;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 210px;
+  }
+}
+
+.introInf {
+  font-family: "Russo One", sans-serif;
+  font-size: 100px;
+  margin-top: 130px;
+  letter-spacing: 8px;
+  animation-name: introInfOn;
+  animation-duration: 4s;
+}
+
+@keyframes introInfOn {
+  0% {
+    opacity: 1;
+    margin-top: 100%;
+  }
+  50% {
+    margin-top: 130px;
+  }
+  70% {
+    text-shadow: 0 0 35px rgba(240, 240, 240, 0.9);
+  }
+  75% {
+    text-shadow: 0 0 55px rgba(240, 240, 240, 0.9);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+//---------------------
+
+/* Ripple Out */
+@-webkit-keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+
+@keyframes hvr-ripple-out {
+  100% {
+    top: -12px;
+    right: -12px;
+    bottom: -12px;
+    left: -12px;
+    opacity: 0;
+  }
+}
+
+.hvr-ripple-out {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+}
+.hvr-ripple-out:before {
+  content: "";
+  position: absolute;
+  border: #e1e1e1 solid 2px;
+  border-radius: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+}
+.hvr-ripple-out:focus:before,
+.hvr-ripple-out:active:before {
+  -webkit-animation-name: hvr-ripple-out;
+  animation-name: hvr-ripple-out;
+}
